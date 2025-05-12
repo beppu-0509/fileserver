@@ -11,7 +11,6 @@ class User {
 
     public function getName() {
         echo "<p>aaa</p>";
-        echo $hen;
         return $this->name;
     }
 

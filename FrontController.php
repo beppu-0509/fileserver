@@ -1,0 +1,26 @@
+コントローラー全部読み込み
+コントローラーのアクションインスタンスを作成する
+作成したインスタンスのオーバーライドしてあるメソッドを呼び出す
+最後にViewをinclude
+<?php
+// フロントコントローラー
+class FrontController {
+    public function dispatch($controllerName) {
+        // コントローラー名を大文字小文字に関係なく受け取る
+        $controllerClass = ucfirst(strtolower($controllerName)) . "Controller";
+
+        // クラスが存在する場合のみ処理を実行
+        if (class_exists($controllerClass)) {
+            // コントローラーをインスタンス化
+            $controller = new $controllerClass();
+            // executeメソッドを実行
+            $controller->execute();
+            //★★★インスタンス.変数名でアクセスできるのでは？
+            //ただし、コントローラークラスのフィールドを作成する
+            //include ~~~(view)
+        } else {
+            echo "コントローラーが見つかりません";
+        }
+    }
+}
+?>

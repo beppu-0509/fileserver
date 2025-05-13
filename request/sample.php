@@ -1,8 +1,7 @@
 <?php
-require 'User.php';
 require '../FrontController.php';
-
-
-header("Location: ../view/SampleView.php");
-exit;
+$front = new FrontController();
+$front->dispatch(pathinfo(__FILE__, PATHINFO_FILENAME));
+//header("Location: ../view/SampleView.php");
+//exit;
 ?>

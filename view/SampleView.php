@@ -11,7 +11,7 @@
     <h1>Welcome to the Sample View</h1>
     
     <!-- コントローラーから渡されたデータを表示 -->
-    <p>データ: <?php echo $data; ?></p>
+    <p>データ: <?php echo $controller->data; ?></p>
 
 </body>
 </html>

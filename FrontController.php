@@ -20,7 +20,8 @@ class FrontController {
             $controller->execute();
             // ★★★インスタンス.変数名でアクセスできるのでは？
             // ただし、コントローラークラスのフィールドを作成する
-            // include ~~~(view)
+            include './view/SampleView.php';
+            //なんかここでエラーでてる
         } else {
             echo "コントローラーが見つかりません";
         }

@@ -1,7 +1,3 @@
-コントローラー全部読み込み
-コントローラーのアクションインスタンスを作成する
-作成したインスタンスのオーバーライドしてあるメソッドを呼び出す
-最後にViewをinclude
 <?php
 // フロントコントローラー
 class FrontController {
@@ -10,7 +6,7 @@ class FrontController {
             require_once $file;
         }
         // コントローラー名を大文字小文字に関係なく受け取る
-        $controllerClass = ucfirst(strtolower($controllerName)) . "Controller";
+        $controllerClass = ucfirst($controllerName) . "Controller";
 
         // クラスが存在する場合のみ処理を実行
         if (class_exists($controllerClass)) {
@@ -20,12 +16,11 @@ class FrontController {
             $controller->execute();
             // ★★★インスタンス.変数名でアクセスできるのでは？
             // ただし、コントローラークラスのフィールドを作成する
-            include './view/SampleView.php';
+            include __DIR__ . '/view/' . ucfirst($controllerName) . "View.php";
             //なんかここでエラーでてる
         } else {
             echo "コントローラーが見つかりません";
         }
-        echo $controllerClass;
     }
 }
 ?>

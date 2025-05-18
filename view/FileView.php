@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <button onclick="selectImage()" class="select-button">選択</button>
     <div class="image-container">
         <?php 
             foreach ($controller->files as $image) {
@@ -110,6 +111,12 @@
                 });
         });
     });
+    function selectImage() {
+        var checkboxes = document.getElementsByClassName('image-checkbox'); // 複数のチェックボックスを取得
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].classList.toggle('hidden'); // hiddenクラスの追加/削除
+        }
+    }
 </script>
 </body>
 </html>
@@ -177,5 +184,23 @@
         padding: 5px;
         border-radius: 5px;
         cursor: pointer;
+    }
+
+    .hidden {
+        display: none; /* 非表示 */
+    }
+
+    .select-button {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 10px 30px;
+        border-radius: 50px;
+        color: white;
+        font-size: 16px;
+        background-color: #4CAF50;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        opacity: 0.96;
     }
 </style>
